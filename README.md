@@ -10,8 +10,7 @@ Script for FC24 game to sort the players of your club from highest to lowest pri
 1. To use the script you must first install paletools from [https://pale.tools/fifa/paletools.html](url).
 2. Run it with the FC Companion webapp.
 3. Go to Club Analyzer -> Export as CSV.
-4. Change the "your_file.csv" in the ```csv_to_utf8.py``` with the actual file name of the new CSV created.
-5. Run the csv_to_utf8.py script with ```python3 csv_to_utf8.py```.
+5. Run the correction.py script with ```python3 correction.py```.
 6. Convert the resulting CSV to Excel, separating data by columns.
 7. Run the python script with ```python3 script_values.py```.
 8. Change the "your_file.xlsx" with the actual file name of the new Excel created.
@@ -26,5 +25,5 @@ Script for FC24 game to sort the players of your club from highest to lowest pri
 ## Players data ouput format:
 - After running the script the user will have the data saved as CSV file, which must be converted to .xmls to sort by price.
 
-## Why need the ```csv_to_utf8.py```
+## Why need the ```correction.py```
 You need to convert the CSV with this script because Paletools downloads the CSV file not in utf8 format so characters like "é" or similar will not be correct in the CSV file downloaded.
