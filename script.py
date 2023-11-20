@@ -52,6 +52,7 @@ def csv_to_excel(csv_file, excel_file):
     df.to_excel(excel_file, index=False)
 
 if __name__ == "__main__":
+    # Replace 'input.csv' with your CSV file name and 'output.xlsx' with the desired Excel file name
     input_csv_file = 'my_club.csv'
     output_excel_file = 'output.xlsx'
 
@@ -65,10 +66,10 @@ if __name__ == "__main__":
 
 
 # Define the URL where you can look up player prices
-base_url = "https://www.fut.gg/players/?name="  
+base_url = "https://www.fut.gg/players/?name="  # Replace with the actual URL
 
 # Load your Excel file
-excel_file = 'output.xlsx'
+excel_file = 'output.xlsx'  # Replace with the actual file name
 wb = openpyxl.load_workbook(excel_file)
 sheet = wb.active
 
@@ -112,7 +113,7 @@ for row in sheet.iter_rows(min_row=2, values_only=True):
 # Write the data to a CSV file
 with open(csv_file, mode="w", newline="") as file:
     writer = csv.writer(file)
-    writer.writerow(["Player ID", "Price", "Name", "Surname"]) 
+    writer.writerow(["Player ID", "Price", "Name", "Surname"])  # Write header row
     writer.writerows(player_data)
 
 print("Data extraction and CSV creation complete.")
@@ -128,6 +129,7 @@ def csv_to_sorted_excel(csv_file, excel_file):
     df.to_excel(excel_file, index=False)
 
 if __name__ == "__main__":
+    # Replace 'input.csv' with your CSV file name and 'output_sorted.xlsx' with the desired Excel file name
     input_csv_file = 'player_prices.csv'
     output_sorted_excel_file = 'player_prices.xlsx'
 
@@ -136,3 +138,13 @@ if __name__ == "__main__":
         print(f"Conversion and sorting successful. Excel file saved as '{output_sorted_excel_file}'.")
     except Exception as e:
         print(f"Error: {e}")
+
+try:
+    # Delete the CSV file
+    os.remove('player_prices.csv')
+    os.remove('club-analyzer.csv')
+    os.remove('output.xlsx')
+    os.remove('my_club.csv')
+    print("Files deleted.")
+except Exception as e:
+    print(f"Error: {e}")
